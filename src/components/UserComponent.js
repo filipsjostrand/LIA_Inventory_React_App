@@ -10,8 +10,8 @@ class UserComponent extends React.Component {
         super()
         this.state = {
             users:[ 
-                {id: 0, firstname: 'John', lastname: 'Doe', emailId: 'jd@demail.com'},
-                {id: 1, firstname: 'Johanna', lastname: 'Does', emailId: 'jdd@demail.com'}
+                {id: 0, firstname: 'John', lastname: 'Doe', email: 'jd@demail.com'},
+                {id: 1, firstname: 'Johanna', lastname: 'Does', email: 'jdd@demail.com'}
         ]
         }
     }
@@ -45,7 +45,7 @@ class UserComponent extends React.Component {
                                     <td> {user.id}</td>
                                     <td> {user.firstname}</td>
                                     <td> {user.lastname}</td>
-                                    <td> {user.emailId}</td>
+                                    <td> {user.email}</td>
                                 </tr>
                             )
 
