@@ -6,12 +6,17 @@ import UserService from '../services/UserService';
 class UserComponent extends React.Component {
 
     constructor() {
+        //super(props)
+        super()
         this.state = {
-            users:[]
+            users:[ 
+                {id: 0, firstname: 'John', lastname: 'Doe', emailId: 'jd@demail.com'},
+                {id: 1, firstname: 'Johanna', lastname: 'Does', emailId: 'jdd@demail.com'}
+        ]
         }
     }
 
-    // componentDidMount() calls Rest API
+    // componentDidMount() calls Rest API (when component is mounted)
     componentDidMount() {
         UserService.getUsers().then((response) => {
             this.setState({ users: response.data})
@@ -26,15 +31,15 @@ class UserComponent extends React.Component {
                     <thead>
                         <tr>
                         
-                            <td> User Id</td>
-                            <td> User First Name</td>
-                            <td> User Last Name</td>
-                            <td> User Email Id</td>
+                            <td> Id</td>
+                            <td> First Name</td>
+                            <td> Last Name</td>
+                            <td> Email</td>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            this.state.user.map(
+                            this.state.users.map(
                                 user =>
                                 <tr key = {user.id}>
                                     <td> {user.id}</td>
