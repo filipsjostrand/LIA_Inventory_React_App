@@ -10,8 +10,10 @@ class EmployeeComponent extends React.Component {
         super()
         this.state = {
             employees:[ 
-                {id: 0, firstname: 'John', lastname: 'Doe', email: 'jd@demail.com'},
-                {id: 1, firstname: 'Johanna', lastname: 'Does', email: 'jdd@demail.com'}
+                //{id: 0, first_name: 'John', last_name: 'Doe', email: 'jd@demail.com'},
+                //{id: 1, first_name: 'Johanna', last_name: 'Does', email: 'jdd@demail.com'}
+                {id: 0, first_name: 'John', last_name: 'Doe'},
+                {id: 1, first_name: 'Johanna', last_name: 'Does'} 
         ]
         }
     }
@@ -23,6 +25,10 @@ class EmployeeComponent extends React.Component {
         });
     }
 
+
+    //<td> Email</td>
+    //<td> {employee.email}</td>
+
     render (){
         return (
             <div>
@@ -30,11 +36,10 @@ class EmployeeComponent extends React.Component {
                 <table className = "table table-striped">
                     <thead>
                         <tr>
-                        
                             <td> Id</td>
                             <td> First Name</td>
                             <td> Last Name</td>
-                            <td> Email</td>
+                            
                         </tr>
                     </thead>
                     <tbody>
@@ -43,9 +48,9 @@ class EmployeeComponent extends React.Component {
                                 employee =>
                                 <tr key = {employee.id}>
                                     <td> {employee.id}</td>
-                                    <td> {employee.firstname}</td>
-                                    <td> {employee.lastname}</td>
-                                    <td> {employee.email}</td>
+                                    <td> {employee.first_name}</td>
+                                    <td> {employee.last_name}</td>
+
                                 </tr>
                             )
 
