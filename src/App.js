@@ -3,7 +3,7 @@ import React from 'react';
 import './App.css';
 import EmployeeComponent from './components/EmployeeComponent';
 
-// Add-import component UserComponent
+// Add-import component EmployeeComponent
 function App() {
   return (
     <div className="App">

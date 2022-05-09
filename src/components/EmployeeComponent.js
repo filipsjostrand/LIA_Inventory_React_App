@@ -1,4 +1,4 @@
-// import and export component, create component that display user list on a webpage.
+// import and export component, create component that display employee list on a webpage.
 
 import React from 'react';
 import EmployeeService from '../services/EmployeeService';
@@ -19,7 +19,7 @@ class EmployeeComponent extends React.Component {
     // componentDidMount() calls Rest API (when component is mounted)
     componentDidMount() {
         EmployeeService.getEmployees().then((response) => {
-            this.setState({ users: response.data})
+            this.setState({ employees: response.data})
         });
     }
 
@@ -60,4 +60,4 @@ class EmployeeComponent extends React.Component {
 
 }
 
-export default employeeComponent
+export default EmployeeComponent
