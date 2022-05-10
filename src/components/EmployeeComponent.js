@@ -39,6 +39,8 @@ class EmployeeComponent extends React.Component {
                             <td> Id</td>
                             <td> First Name</td>
                             <td> Last Name</td>
+                            <td> Email</td>
+                            <td> Phone number</td>
                             
                         </tr>
                     </thead>
@@ -50,6 +52,8 @@ class EmployeeComponent extends React.Component {
                                     <td> {employee.id}</td>
                                     <td> {employee.first_name}</td>
                                     <td> {employee.last_name}</td>
+                                    <td> {employee.email}</td>
+                                    <td> {employee.phone_number}</td>
 
                                 </tr>
                             )
