@@ -1,14 +1,14 @@
 // import and export component, create component that display organization list on a webpage.
 
 import React from 'react';
-import EquipmentTypesService from '../services/EquipmentTypeService';
+import EquipmentTypeService from '../services/EquipmentTypeService';
 
 class EquipmentTypeComponent extends React.Component {
 
     constructor() {
         super()
         this.state = {
-            equipmentypes:[ 
+            equipmenttypes:[ 
                 {id: 0, name: 'Foneee'},
                 {id: 1, name: 'Commmp'} 
         ]
@@ -16,7 +16,7 @@ class EquipmentTypeComponent extends React.Component {
     }
 
     componentDidMount() {
-        EquipmentTypesService.getEquipmentTypes().then((response) => {
+        EquipmentTypeService.getEquipmentTypes().then((response) => {
             this.setState({ equipmenttypes: response.data})
         });
     }
@@ -35,7 +35,7 @@ class EquipmentTypeComponent extends React.Component {
                     </thead>
                     <tbody>
                         {
-                            this.state.equipmentypes.map(
+                            this.state.equipmenttypes.map(
                                 equipmenttype =>
                                 <tr key = {equipmenttype.id}>
                                     <td> {equipmenttype.id}</td>
