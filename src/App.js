@@ -5,34 +5,27 @@ import EmployeeComponent from './components/EmployeeComponent';
 import OrganizationComponent from './components/OrganizationComponent';
 import EquipmentComponent from './components/EquipmentComponent';
 import EquipmentTypeComponent from './components/EquipmentTypeComponent';
+import HeaderComponent from './components/HeaderComponent';
+import FooterComponent from './components/FooterComponent';
 
 // Add-import components Employee, Organization, Equipment, Equipment_Type
 function App() {
   return (
-    <div className="App">
-        <br></br>
-        <br></br>
-        <EmployeeComponent />
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <OrganizationComponent />
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <EquipmentComponent />
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <EquipmentTypeComponent />
-
+    <div>
+      <HeaderComponent/>
+          <div className="Container">
+            <br></br>
+            <EmployeeComponent />
+            <br></br>
+            <OrganizationComponent />
+            <br></br>
+            <EquipmentComponent />
+            <br></br>
+            <EquipmentTypeComponent />
+          </div>
+        <FooterComponent />
     </div>
+
   );
 }
 
