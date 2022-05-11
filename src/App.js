@@ -3,7 +3,7 @@ import React from 'react';
 import './App.css';
 import EmployeeComponent from './components/EmployeeComponent';
 import OrganizationComponent from './components/OrganizationComponent';
-import EquipmentComponent from './components/EquipmentComponent';
+import ListEquipmentComponent from './components/ListEquipmentComponent';
 import EquipmentTypeComponent from './components/EquipmentTypeComponent';
 import HeaderComponent from './components/HeaderComponent';
 import FooterComponent from './components/FooterComponent';
@@ -19,7 +19,7 @@ function App() {
             <br></br>
             <OrganizationComponent />
             <br></br>
-            <EquipmentComponent />
+            <ListEquipmentComponent />
             <br></br>
             <EquipmentTypeComponent />
           </div>
