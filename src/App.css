@@ -46,3 +46,7 @@
   text-align: center;
   color: white;
 }
+
+.navbar-brand {
+  padding: 10px;
+}
