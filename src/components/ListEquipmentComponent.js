@@ -11,7 +11,7 @@ import EquipmentService from '../services/EquipmentService';
 </form>
 */
 
-class EquipmentComponent extends React.Component {
+class ListEquipmentComponent extends React.Component {
 
     constructor() {
         super()
@@ -69,4 +69,4 @@ class EquipmentComponent extends React.Component {
 
 }
 
-export default EquipmentComponent
+export default ListEquipmentComponent
