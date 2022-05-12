@@ -24,7 +24,7 @@ class ListOrganizationComponent extends React.Component {
     render (){
         return (
             <div>
-                <h1 className = "text-center"> Organizations list </h1>
+                <h2 className = "text-center"> Organizations list </h2>
                 <table className = "table table-striped">
                     <thead>
                         <tr>

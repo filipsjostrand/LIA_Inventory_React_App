@@ -32,7 +32,7 @@ class ListEmployeeComponent extends React.Component {
     render (){
         return (
             <div>
-                <h1 className = "text-center"> Employees list </h1>
+                <h2 className = "text-center"> Employees list </h2>
                 <table className = "table table-striped">
                     <thead>
                         <tr>

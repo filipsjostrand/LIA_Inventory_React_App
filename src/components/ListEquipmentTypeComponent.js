@@ -24,7 +24,7 @@ class ListEquipmentTypeComponent extends React.Component {
     render (){
         return (
             <div>
-                <h1 className = "text-center"> Equipment Type list </h1>
+                <h2 className = "text-center"> Equipment Type list </h2>
                 <table className = "table table-striped">
                     <thead>
                         <tr>

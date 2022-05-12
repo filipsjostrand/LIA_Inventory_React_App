@@ -9,6 +9,7 @@ import ListEmployeeComponent from "./components/ListEmployeeComponent";
 import ListEquipmentComponent from './components/ListEquipmentComponent';
 import ListEquipmentTypeComponent from './components/ListEquipmentTypeComponent';
 import ListOrganizationComponent from './components/ListOrganizationComponent';
+import AddEquipmentComponent from './components/AddEquipmentComponent';
 import ErrorPage from "./pages/ErrorPage";
 
 // Add-import components Employee, Organization, Equipment, Equipment_Type
@@ -18,7 +19,7 @@ function App() {
       <nav className="header">
         <HeaderComponent />
       </nav>
-      <div>
+      <div className="App">
         <Router>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -26,6 +27,7 @@ function App() {
             <Route path="/equipment" element={<ListEquipmentComponent />} />
             <Route path="/equipmenttype" element={<ListEquipmentTypeComponent />} />
             <Route path="/organization" element={<ListOrganizationComponent />} />
+            <Route path="/add-equipment" element={<AddEquipmentComponent />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
         </Router>

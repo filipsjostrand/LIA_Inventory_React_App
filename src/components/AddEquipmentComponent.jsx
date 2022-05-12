@@ -12,7 +12,7 @@ class AddEquipmentComponent extends Component {
   render() {
     return (
         <div>
-          AddEquipmentComponent
+          <h1> Equipment Form</h1>
         </div>
     )
   }
