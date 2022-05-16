@@ -6,12 +6,9 @@ import EmployeeService from '../services/EmployeeService';
 class ListEmployeeComponent extends React.Component {
 
     constructor() {
-        //super(props)
         super()
         this.state = {
             employees:[ 
-                //{id: 0, first_name: 'John', last_name: 'Doe', email: 'jd@demail.com'},
-                //{id: 1, first_name: 'Johanna', last_name: 'Does', email: 'jdd@demail.com'}
                 {id: 0, first_name: 'John', last_name: 'Doe'},
                 {id: 1, first_name: 'Johanna', last_name: 'Does'} 
         ]
@@ -25,9 +22,6 @@ class ListEmployeeComponent extends React.Component {
         });
     }
 
-
-    //<td> Email</td>
-    //<td> {employee.email}</td>
 
     render (){
         return (
