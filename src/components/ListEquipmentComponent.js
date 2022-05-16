@@ -42,7 +42,7 @@ export class ListEquipmentComponent extends React.Component {
                 <div className="row">
 
                     <Link to="/add-equipment">
-                        <button className="btn btn-primary">Add Equipment</button>
+                        <button className="btn btn-primary" id="add-equipment-button">Add Equipment</button>
                     </Link>
                 </div>
                 <table className="table table-striped">

@@ -1,5 +1,7 @@
+/*text-align: center;*/
+
 .App {
-  text-align: center;
+  text-align: left;
 }
 
 .App-logo {
@@ -51,8 +53,12 @@
   padding: 10px;
 }
 
-.row {
-  padding-left: 60px;
+#add-equipment-button {
+  position: relative;
+  margin-bottom: 10px;
+  left: 1.5%;
+}
+
+.form-group {
   padding-bottom: 20px;
-  width: 250px;
 }
