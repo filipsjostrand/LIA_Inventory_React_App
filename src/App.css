@@ -56,7 +56,8 @@
 #add-equipment-button {
   position: relative;
   margin-bottom: 10px;
-  left: 1.5%;
+  left: 4%;
+  width: 175px;
 }
 
 .form-group {
