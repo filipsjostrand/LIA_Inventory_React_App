@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Navigate } from 'react-router-dom'
+import EquipmentService from '../services/EquipmentService';
 
 class AddEquipmentComponent extends Component {
   constructor(props) {
@@ -28,6 +29,7 @@ class AddEquipmentComponent extends Component {
     e.preventDefault();
     let equipment = {uniqueIdSerial: this.state.uniqueIdSerial, modelName: this.state.modelName, dateOfPurchase: this.state.dateOfPurchase };
     console.log('equipment => ' + JSON.stringify(equipment));
+
   }
 
   changeUniqueIdSerialHandler = (event) => {
@@ -42,13 +44,11 @@ class AddEquipmentComponent extends Component {
     this.setState({ dateOfPurchase: event.target.value });
   }
 
-
-
   render() {
     const isCancelClicked = this.state.isCancelClicked;
 
-if (isCancelClicked) {
-    return <Navigate to="/equipment"/>
+    if (isCancelClicked) {
+        return <Navigate to="/equipment"/>
 }
     return (
       <div>
