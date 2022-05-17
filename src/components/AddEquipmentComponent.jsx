@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-//import { Navigate } from 'react-router-dom'
-import { Link } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 
 class AddEquipmentComponent extends Component {
   constructor(props) {
     super(props)
+    this.state = { isCancelClicked: true };
+    this.cancel = this.cancel.bind(this);
 
     this.state = {
       uniqueIdSerial: '',
@@ -15,8 +16,13 @@ class AddEquipmentComponent extends Component {
     this.changeModelNameHandler = this.changeModelNameHandler.bind(this);
     this.changeDateOfPurchaseHandler = this.changeDateOfPurchaseHandler.bind(this);
     this.saveEquipment = this.saveEquipment.bind(this);
-    //this.cancel = this.cancel.bind(this);
   }
+
+  cancel() {
+    this.setState(prevState => ({
+      isCancelClicked: !prevState.isCancelClicked
+    }));
+}
 
   saveEquipment = (e) => {
     e.preventDefault();
@@ -38,10 +44,12 @@ class AddEquipmentComponent extends Component {
 
 
 
-
-
-
   render() {
+    const isCancelClicked = this.state.isCancelClicked;
+
+if (isCancelClicked) {
+    return <Navigate to="/equipment"/>
+}
     return (
       <div>
         <div className="container">
@@ -68,9 +76,7 @@ class AddEquipmentComponent extends Component {
 
                   <button className="btn btn-success" onClick={this.saveEquipment}>Save</button>
 
-                  <Link to="/equipment">
-                  <button className="btn btn-danger" style={{marginLeft: "10px"}}> Cancel</button>
-                  </Link>
+                  <button className="btn btn-danger" style={{marginLeft: "10px"}} onClick={this.cancel}>Cancel</button>
 
                 </form>
               </div>
