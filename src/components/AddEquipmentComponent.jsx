@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import { Navigate } from 'react-router-dom'
 import EquipmentService from '../services/EquipmentService';
+import {withRouter} from '../helpers/withRouter';
 
 class AddEquipmentComponent extends Component {
   constructor(props) {
     super(props)
     this.state = { isCancelClicked: true };
     this.cancel = this.cancel.bind(this);
+    this.navigateFunction = this.navigateFunction.bind(this);
 
     this.state = {
       uniqueIdSerial: '',
@@ -25,10 +27,19 @@ class AddEquipmentComponent extends Component {
     }));
 }
 
+navigateFunction()
+    {
+        this.props.navigate('/equipment')
+    }
+
   saveEquipment = (e) => {
     e.preventDefault();
     let equipment = {uniqueIdSerial: this.state.uniqueIdSerial, modelName: this.state.modelName, dateOfPurchase: this.state.dateOfPurchase };
     console.log('equipment => ' + JSON.stringify(equipment));
+
+    EquipmentService.addEquipment(equipment).then(res =>{
+      this.navigateFunction();
+    });
 
   }
 
@@ -43,6 +54,9 @@ class AddEquipmentComponent extends Component {
   changeDateOfPurchaseHandler = (event) => {
     this.setState({ dateOfPurchase: event.target.value });
   }
+
+//<button className="btn btn-success" onClick={() => {this.saveEquipment(); this.navigateFunction();}}>Save</button>
+//<button className="btn btn-success" onClick={this.saveEquipment && this.navigateFunction}>Save</button>
 
   render() {
     const isCancelClicked = this.state.isCancelClicked;
@@ -74,7 +88,8 @@ class AddEquipmentComponent extends Component {
                       value={this.state.dateOfPurchase} onChange={this.changeDateOfPurchaseHandler} />
                   </div>
 
-                  <button className="btn btn-success" onClick={this.saveEquipment}>Save</button>
+                  <button className="btn btn-success" onClick={() => {this.saveEquipment(); this.navigateFunction();}}>Save</button>
+
 
                   <button className="btn btn-danger" style={{marginLeft: "10px"}} onClick={this.cancel}>Cancel</button>
 
@@ -88,4 +103,4 @@ class AddEquipmentComponent extends Component {
   }
 }
 
-export default AddEquipmentComponent
+export default withRouter(AddEquipmentComponent);
