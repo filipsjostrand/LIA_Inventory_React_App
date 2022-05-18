@@ -10,6 +10,7 @@ import ListEquipmentComponent from './components/ListEquipmentComponent';
 import ListEquipmentTypeComponent from './components/ListEquipmentTypeComponent';
 import ListOrganizationComponent from './components/ListOrganizationComponent';
 import AddEquipmentComponent from './components/AddEquipmentComponent';
+import UpdateEquipmentComponent from './components/UpdateEquipmentComponent';
 import ErrorPage from "./pages/ErrorPage";
 
 // Add-import components Employee, Organization, Equipment, Equipment_Type
@@ -28,6 +29,7 @@ function App() {
             <Route path="/equipmenttype" element={<ListEquipmentTypeComponent />} />
             <Route path="/organization" element={<ListOrganizationComponent />} />
             <Route path="/add-equipment" element={<AddEquipmentComponent />} />
+            <Route path="/update-equipment/:id" element={<UpdateEquipmentComponent />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
         </Router>

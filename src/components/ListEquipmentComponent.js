@@ -3,13 +3,17 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
 import EquipmentService from '../services/EquipmentService';
+import {withRouter} from '../helpers/withRouter';
 
 export class ListEquipmentComponent extends React.Component {
 
     constructor() {
         super()
-        this.state = { isToggleOn: true };
-        this.handleClick = this.handleClick.bind(this);
+        this.state = { addIsToggleOn: true };
+        // this.state = { updateIsToggleOn: true };
+        this.addEquipmentButton = this.addEquipmentButton.bind(this);
+        //this.updateEquipmentButton = this.updateEquipmentButton.bind(this);
+        this.navigateFunction = this.navigateFunction.bind(this);
         this.state = {
             equipment: [
                 { id: 0, unique_id_serial: '111112', model_name: 'iPhone 13', date_of_purchase: '2022-01-10' },
@@ -18,11 +22,24 @@ export class ListEquipmentComponent extends React.Component {
         }
     }
 
-    handleClick() {
+    addEquipmentButton() {
         this.setState(prevState => ({
-            isToggleOn: !prevState.isToggleOn
+            addIsToggleOn: !prevState.addIsToggleOn
         }));
     }
+
+    navigateFunction(id)
+    {
+        this.props.navigate(`/update-equipment/${id}`)
+    }
+
+    //updateEquipmentButton(id) {
+        // this.setState(prevState => ({
+        //     updateIsToggleOn: !prevState.updateIsToggleOn
+        // }));
+        //this.navigate(`/update-equipment/${id}`)
+        
+    //}
 
     componentDidMount() {
         EquipmentService.getEquipment().then((response) => {
@@ -31,20 +48,29 @@ export class ListEquipmentComponent extends React.Component {
         });
     }
 
+// <button onClick = { () => this.updateEquipmentButton(equipment.id)} className="btn btn-info">Update</button>
+
     render() {
 
-const isToggleOn = this.state.isToggleOn;
+const addIsToggleOn = this.state.addIsToggleOn;
 
-if (isToggleOn) {
+if (addIsToggleOn) {
     return <Navigate to="/add-equipment"/>
 }
+
+// const updateIsToggleOn = this.state.updateIsToggleOn;
+
+// if (updateIsToggleOn) {
+//     this.navigation.navigate(`/update-equipment/${id}`)
+//     // return <Navigate to="/update-equipment/${id}"/>
+// }
 
         return (
             <div>
                 <h2 className="text-center"> Equipment list </h2>
                 <div className="row">
 
-                    <button className="btn btn-primary" id="add-equipment-button" onClick={this.handleClick}> Add Equipment</button>
+                    <button className="btn btn-primary" id="add-equipment-button" onClick={this.addEquipmentButton}> Add Equipment</button>
 
                 </div>
                 <table className="table table-striped">
@@ -66,6 +92,9 @@ if (isToggleOn) {
                                         <td> {equipment.unique_id_serial}</td>
                                         <td> {equipment.model_name}</td>
                                         <td> {equipment.date_of_purchase}</td>
+                                        <td>
+                                            <button onClick = { () => this.navigateFunction(equipment.id)} className="btn btn-info">Update</button>
+                                        </td>
 
                                     </tr>
                             )
@@ -77,4 +106,4 @@ if (isToggleOn) {
     }
 }
 
-export default ListEquipmentComponent
+export default withRouter(ListEquipmentComponent)

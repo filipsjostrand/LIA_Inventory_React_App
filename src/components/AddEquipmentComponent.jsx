@@ -6,10 +6,8 @@ import {withRouter} from '../helpers/withRouter';
 class AddEquipmentComponent extends Component {
   constructor(props) {
     super(props)
-    this.state = { isCancelClicked: true };
-    this.cancel = this.cancel.bind(this);
-    this.navigateFunction = this.navigateFunction.bind(this);
 
+    this.state = { isCancelClicked: true };
     this.state = {
       unique_id_serial: '',
       model_name: '',
@@ -19,6 +17,8 @@ class AddEquipmentComponent extends Component {
     this.changeModelNameHandler = this.changeModelNameHandler.bind(this);
     this.changeDateOfPurchaseHandler = this.changeDateOfPurchaseHandler.bind(this);
     this.saveEquipment = this.saveEquipment.bind(this);
+    this.cancel = this.cancel.bind(this);
+    this.navigateFunction = this.navigateFunction.bind(this);
   }
 
   cancel() {
@@ -105,4 +105,4 @@ navigateFunction()
   }
 }
 
-export default withRouter(AddEquipmentComponent);
+export default withRouter(AddEquipmentComponent)

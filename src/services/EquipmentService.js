@@ -13,6 +13,10 @@ class EquipmentService {
     addEquipment(equipment) {
         return axios.post(EQUIPMENT_REST_API_URL, equipment);
     }
+
+    getEquipmentById(equipmentId) {
+        return axios.post(EQUIPMENT_REST_API_URL + '/' + equipmentId);
+    }
 }
 
 export default new EquipmentService();
