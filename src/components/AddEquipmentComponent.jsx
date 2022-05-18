@@ -11,9 +11,9 @@ class AddEquipmentComponent extends Component {
     this.navigateFunction = this.navigateFunction.bind(this);
 
     this.state = {
-      uniqueIdSerial: '',
-      modelName: '',
-      dateOfPurchase: ''
+      unique_id_serial: '',
+      model_name: '',
+      date_of_purchase: ''
     }
     this.changeUniqueIdSerialHandler = this.changeUniqueIdSerialHandler.bind(this);
     this.changeModelNameHandler = this.changeModelNameHandler.bind(this);
@@ -34,27 +34,31 @@ navigateFunction()
 
   saveEquipment = (e) => {
     e.preventDefault();
-    let equipment = {uniqueIdSerial: this.state.uniqueIdSerial, modelName: this.state.modelName, dateOfPurchase: this.state.dateOfPurchase };
-    console.log('equipment => ' + JSON.stringify(equipment));
+    let equipment = {
+      unique_id_serial: this.state.unique_id_serial, 
+      model_name: this.state.model_name, 
+      date_of_purchase: this.state.date_of_purchase 
+    };
 
     EquipmentService.addEquipment(equipment).then(res =>{
-      this.navigateFunction();
+      //this.navigateFunction();
     });
 
   }
 
   changeUniqueIdSerialHandler = (event) => {
-    this.setState({ uniqueIdSerial: event.target.value });
+    this.setState({ unique_id_serial: event.target.value });
   }
 
   changeModelNameHandler = (event) => {
-    this.setState({ modelName: event.target.value });
+    this.setState({ model_name: event.target.value });
   }
 
   changeDateOfPurchaseHandler = (event) => {
-    this.setState({ dateOfPurchase: event.target.value });
+    this.setState({ date_of_purchase: event.target.value });
   }
 
+//<button className="btn btn-success" onClick={this.saveEquipment}>Save</button>
 //<button className="btn btn-success" onClick={() => {this.saveEquipment(); this.navigateFunction();}}>Save</button>
 //<button className="btn btn-success" onClick={this.saveEquipment && this.navigateFunction}>Save</button>
 
@@ -74,25 +78,23 @@ navigateFunction()
                 <form>
                   <div className="form-group">
                     <label> Unique id serial: </label>
-                    <input placeholder="Unique id Serial" name="uniqueIdSerial" className="form-control"
-                      value={this.state.uniqueIdSerial} onChange={this.changeUniqueIdSerialHandler} />
+                    <input placeholder="Unique id Serial" name="unique_id_serial" className="form-control"
+                      value={this.state.unique_id_serial} onChange={this.changeUniqueIdSerialHandler} />
                   </div>
                   <div className="form-group">
                     <label> Model Name: </label>
-                    <input placeholder="Model Name" name="modelName" className="form-control"
-                      value={this.state.modelName} onChange={this.changeModelNameHandler} />
+                    <input placeholder="Model Name" name="model_name" className="form-control"
+                      value={this.state.model_name} onChange={this.changeModelNameHandler} />
                   </div>
                   <div className="form-group">
                     <label> Date of Purchase: </label>
-                    <input placeholder="Date of Purchase" name="dateOfPurchase" className="form-control"
-                      value={this.state.dateOfPurchase} onChange={this.changeDateOfPurchaseHandler} />
+                    <input placeholder="Date of Purchase" name="date_of_purchase" className="form-control"
+                      value={this.state.date_of_purchase} onChange={this.changeDateOfPurchaseHandler} />
                   </div>
 
-                  <button className="btn btn-success" onClick={() => {this.saveEquipment(); this.navigateFunction();}}>Save</button>
-
-
+                  <button className="btn btn-success" onClick={this.saveEquipment}>Save</button>
                   <button className="btn btn-danger" style={{marginLeft: "10px"}} onClick={this.cancel}>Cancel</button>
-
+                  <button className="btn btn-secondary" style={{marginLeft: "25%"}} onClick={this.navigateFunction}>Go back</button>
                 </form>
               </div>
             </div>

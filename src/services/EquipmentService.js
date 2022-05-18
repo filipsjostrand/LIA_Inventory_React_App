@@ -10,8 +10,8 @@ class EquipmentService {
         return axios.get(EQUIPMENT_REST_API_URL)
     }
 
-    create(equipment) {
-        return axios.post(EQUIPMENT_REST_API_URL);
+    addEquipment(equipment) {
+        return axios.post(EQUIPMENT_REST_API_URL, equipment);
     }
 }
 
