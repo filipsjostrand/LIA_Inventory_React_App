@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Navigate } from 'react-router-dom'
-//import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import EquipmentService from '../services/EquipmentService';
 import { withRouter } from '../helpers/withRouter';
 
