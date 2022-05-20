@@ -13,7 +13,6 @@ import AddEquipmentComponent from './components/AddEquipmentComponent';
 import UpdateEquipmentComponent from './components/UpdateEquipmentComponent';
 import ErrorPage from "./pages/ErrorPage";
 
-// Add-import components Employee, Organization, Equipment, Equipment_Type
 function App() {
   return (
     <div>
@@ -31,6 +30,7 @@ function App() {
             <Route path="/add-equipment" element={<AddEquipmentComponent />} />
             <Route path="/update-equipment/:id" element={<UpdateEquipmentComponent />} />
             <Route path="*" element={<ErrorPage />} />
+
           </Routes>
         </Router>
       </div>

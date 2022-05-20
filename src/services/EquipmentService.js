@@ -1,5 +1,6 @@
 import axios from 'axios'
 
+
 // Rest end-point-URL
 const EQUIPMENT_REST_API_URL = 'http://localhost:8080/api/equipment';
 
@@ -14,8 +15,11 @@ class EquipmentService {
         return axios.post(EQUIPMENT_REST_API_URL, equipment);
     }
 
+    //getEquipmentById(equipmentId) {
     getEquipmentById(equipmentId) {
-        return axios.post(EQUIPMENT_REST_API_URL + '/' + equipmentId);
+        console.log(equipmentId);
+        console.log(EQUIPMENT_REST_API_URL + '/' + equipmentId);
+        return axios.get(EQUIPMENT_REST_API_URL + '/' + equipmentId);
     }
 }
 

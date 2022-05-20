@@ -41,7 +41,6 @@ navigateFunction()
     };
 
     EquipmentService.addEquipment(equipment).then(res =>{
-      //this.navigateFunction();
     });
 
   }
@@ -57,10 +56,6 @@ navigateFunction()
   changeDateOfPurchaseHandler = (event) => {
     this.setState({ date_of_purchase: event.target.value });
   }
-
-//<button className="btn btn-success" onClick={this.saveEquipment}>Save</button>
-//<button className="btn btn-success" onClick={() => {this.saveEquipment(); this.navigateFunction();}}>Save</button>
-//<button className="btn btn-success" onClick={this.saveEquipment && this.navigateFunction}>Save</button>
 
   render() {
     const isCancelClicked = this.state.isCancelClicked;

@@ -30,16 +30,9 @@ export class ListEquipmentComponent extends React.Component {
 
     navigateFunction(id)
     {
+        console.log(id);
         this.props.navigate(`/update-equipment/${id}`)
     }
-
-    //updateEquipmentButton(id) {
-        // this.setState(prevState => ({
-        //     updateIsToggleOn: !prevState.updateIsToggleOn
-        // }));
-        //this.navigate(`/update-equipment/${id}`)
-        
-    //}
 
     componentDidMount() {
         EquipmentService.getEquipment().then((response) => {
@@ -57,13 +50,6 @@ const addIsToggleOn = this.state.addIsToggleOn;
 if (addIsToggleOn) {
     return <Navigate to="/add-equipment"/>
 }
-
-// const updateIsToggleOn = this.state.updateIsToggleOn;
-
-// if (updateIsToggleOn) {
-//     this.navigation.navigate(`/update-equipment/${id}`)
-//     // return <Navigate to="/update-equipment/${id}"/>
-// }
 
         return (
             <div>
