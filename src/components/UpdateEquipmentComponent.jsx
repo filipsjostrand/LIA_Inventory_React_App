@@ -9,7 +9,7 @@ class UpdateEquipmentComponent extends Component {
 
     this.state = { isCancelClicked: true };
     this.state = {
-      id: this.props.id,
+      id: this.props.params.id,
       unique_id_serial: '',
       model_name: '',
       date_of_purchase: ''
@@ -24,27 +24,14 @@ class UpdateEquipmentComponent extends Component {
   }
 
   componentDidMount() {
-    console.log(this);
-
-// Omvandlar objekt-värde (-> array-värde -> string -> int)
-const paramObj = this.props.params;
-const paramStringArray = Object.values(paramObj);
-const paramStringId = paramStringArray.join();
-const intId = +paramStringId;
-const equipmentId = intId;
-console.log(equipmentId);
-
-
-//EquipmentService.getEquipmentById(this.state.id).then((response) => {
-  EquipmentService.getEquipmentById(equipmentId).then((response) => {
-  let equipment = response.data;
-  this.setState({
-    unique_id_serial: equipment.unique_id_serial,
-    model_name: equipment.model_name,
-    date_of_purchase: equipment.date_of_purchase
-  });
-});
-
+    EquipmentService.getEquipmentById(this.props.params.id).then((response) => {
+      let equipment = response.data;
+      this.setState({
+        unique_id_serial: equipment.unique_id_serial,
+        model_name: equipment.model_name,
+        date_of_purchase: equipment.date_of_purchase
+      });
+    });
   }
 
   cancel() {
@@ -53,6 +40,7 @@ console.log(equipmentId);
     }));
   }
 
+  // Använd nyckelord "navigate" för att skicka props till "/equipment" (via helpers: withRouter)
   navigateFunction() {
     this.props.navigate('/equipment')
   }
@@ -60,13 +48,12 @@ console.log(equipmentId);
   updateEquipment = (e) => {
     e.preventDefault();
     let equipment = {
+      id: this.props.params.id,
       unique_id_serial: this.state.unique_id_serial,
       model_name: this.state.model_name,
       date_of_purchase: this.state.date_of_purchase
     };
-    console.log('equipment => ' + JSON.stringify(equipment));
-    console.log(equipment);
-
+    EquipmentService.updateEquipment(equipment, equipment.id);
   }
 
   changeUniqueIdSerialHandler = (event) => {

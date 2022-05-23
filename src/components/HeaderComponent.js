@@ -18,6 +18,7 @@ class HeaderComponent extends Component {
               <nav className="navbar navbar-expand-md navbar-dark bg-dark">
                 <div>
                     <a href="http://localhost:3000/" className="navbar-brand">Nexer Inventory App</a>
+                    <a href="http://localhost:3000/equipment" className="navbar-brand" style={{color: "LightGray"}}>Equipment</a>
                 </div>
               </nav>
           </header>

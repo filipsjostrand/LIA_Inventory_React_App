@@ -9,7 +9,7 @@ export class ListEquipmentComponent extends React.Component {
 
     constructor() {
         super()
-        this.state = { addIsToggleOn: true };
+        this.state = { addButtonIsPressed: true };
         this.addEquipmentButton = this.addEquipmentButton.bind(this);
         this.navigateFunction = this.navigateFunction.bind(this);
         this.state = {
@@ -22,7 +22,7 @@ export class ListEquipmentComponent extends React.Component {
 
     addEquipmentButton() {
         this.setState(prevState => ({
-            addIsToggleOn: !prevState.addIsToggleOn
+            addButtonIsPressed: !prevState.addButtonIsPressed
         }));
     }
 
@@ -41,9 +41,9 @@ export class ListEquipmentComponent extends React.Component {
 
     render() {
 
-const addIsToggleOn = this.state.addIsToggleOn;
+const addButtonIsPressed = this.state.addButtonIsPressed;
 
-if (addIsToggleOn) {
+if (addButtonIsPressed) {
     return <Navigate to="/add-equipment"/>
 }
 
