@@ -10,9 +10,7 @@ export class ListEquipmentComponent extends React.Component {
     constructor() {
         super()
         this.state = { addIsToggleOn: true };
-        // this.state = { updateIsToggleOn: true };
         this.addEquipmentButton = this.addEquipmentButton.bind(this);
-        //this.updateEquipmentButton = this.updateEquipmentButton.bind(this);
         this.navigateFunction = this.navigateFunction.bind(this);
         this.state = {
             equipment: [
@@ -40,8 +38,6 @@ export class ListEquipmentComponent extends React.Component {
             this.setState({ equipment: response.data })
         });
     }
-
-// <button onClick = { () => this.updateEquipmentButton(equipment.id)} className="btn btn-info">Update</button>
 
     render() {
 
