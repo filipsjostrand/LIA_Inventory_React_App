@@ -21,6 +21,10 @@ class EquipmentService {
         console.log(EQUIPMENT_REST_API_URL + '/' + equipmentId);
         return axios.get(EQUIPMENT_REST_API_URL + '/' + equipmentId);
     }
+
+    updateEquipment(equipment, equipmentId) {
+        return axios.put(EQUIPMENT_REST_API_URL + '/' + equipmentId, equipment)
+    }
 }
 
 export default new EquipmentService();
