@@ -5,8 +5,7 @@ function ErrorPage() {
   const [goToHome, setGoToHome] = React.useState(false);
 
   if (goToHome) {
-    //return <Navigate to='/Home'/>;
-    return <Navigate to='/equipment'/>;
+    return <Navigate to='/Home'/>;
   }
 
   return (

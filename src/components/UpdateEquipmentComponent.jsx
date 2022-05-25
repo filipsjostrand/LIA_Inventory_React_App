@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Navigate } from 'react-router-dom'
 import EquipmentService from '../services/EquipmentService';
 import { withRouter } from '../helpers/withRouter';
 
@@ -19,7 +18,6 @@ class UpdateEquipmentComponent extends Component {
     this.changeModelNameHandler = this.changeModelNameHandler.bind(this);
     this.changeDateOfPurchaseHandler = this.changeDateOfPurchaseHandler.bind(this);
     this.updateEquipment = this.updateEquipment.bind(this);
-    this.cancel = this.cancel.bind(this);
     this.navigateFunction = this.navigateFunction.bind(this);
   }
 
@@ -32,12 +30,6 @@ class UpdateEquipmentComponent extends Component {
         date_of_purchase: equipment.date_of_purchase
       });
     });
-  }
-
-  cancel() {
-    this.setState(prevState => ({
-      isCancelClicked: !prevState.isCancelClicked
-    }));
   }
 
   // Använd nyckelord "navigate" för att skicka props till "/equipment" (via helpers: withRouter)
@@ -53,7 +45,9 @@ class UpdateEquipmentComponent extends Component {
       model_name: this.state.model_name,
       date_of_purchase: this.state.date_of_purchase
     };
-    EquipmentService.updateEquipment(equipment, equipment.id);
+    EquipmentService.updateEquipment(equipment, equipment.id).then(() => {
+      this.navigateFunction()
+    });
   }
 
   changeUniqueIdSerialHandler = (event) => {
@@ -69,11 +63,7 @@ class UpdateEquipmentComponent extends Component {
   }
 
   render() {
-    const isCancelClicked = this.state.isCancelClicked;
 
-    if (isCancelClicked) {
-      return <Navigate to="/equipment" />
-    }
 
     return (
       <div>
@@ -100,8 +90,7 @@ class UpdateEquipmentComponent extends Component {
                   </div>
 
                   <button className="btn btn-success" onClick={this.updateEquipment}>Save</button>
-                  <button className="btn btn-danger" style={{ marginLeft: "10px" }} onClick={this.cancel}>Cancel</button>
-                  <button className="btn btn-secondary" style={{ marginLeft: "25%" }} onClick={this.navigateFunction}>Go back</button>
+                  <button className="btn btn-danger" style={{ marginLeft: "10px" }} onClick={this.navigateFunction}>Cancel</button>
                 </form>
               </div>
             </div>
